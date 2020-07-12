@@ -101,7 +101,7 @@ print()
 print()
 print(" Gracias por comprar " + productName + "       :D")
 print("*************** TAMBIÉN PODRÍA INTERESARTE " + productNameRecommend)
-print("*************** TAMBIÉN PODRÍA INTERESARTE " + productNameRecommend_2)
+
 
 print()
 print(tableResult)

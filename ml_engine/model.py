@@ -79,10 +79,32 @@ print()
 print("ITEM PREDICTION:")
 print(item_prediction)
 print()
-'''
-L = pd.DataFrame(data=user_prediction)
-L.to_csv('MatH.csv', sep=' ', header=False, float_format='%.2f', index=False)
-'''
+
+# Cogeremos todas las calificaciones y calcularemos su error
+
+a = np.array(data_matrix)
+b = np.array(user_prediction)
+print(a)
+print(b)
+c = a-b
+print("c")
+print(c)
+# Recorreremos los únicos elementos de data_matrix que hubieran existido
+arrayTemp = []
+for i in range(len(data_matrix)):
+    for j in range(len(data_matrix[i])):
+        if data_matrix[i][j] != 0:
+            arrayTemp.append(data_matrix[i][j] - user_prediction[i][j])
+print()
+print("////////////////////////////////////////////ARRAY_TEMP/////////////////////////////////////////////")
+print(arrayTemp)
+
+
+
+
+L = pd.DataFrame(data=arrayTemp)
+L.to_csv('ArrayTemp.csv', sep=';', header=False, float_format='%.2f', index=False)
+
 
 
 
