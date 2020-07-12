@@ -95,11 +95,6 @@ for i in range(len(data_matrix)):
     for j in range(len(data_matrix[i])):
         if data_matrix[i][j] != 0:
             arrayTemp.append(data_matrix[i][j] - user_prediction[i][j])
-print()
-print("////////////////////////////////////////////ARRAY_TEMP/////////////////////////////////////////////")
-print(arrayTemp)
-
-
 
 
 L = pd.DataFrame(data=arrayTemp)
