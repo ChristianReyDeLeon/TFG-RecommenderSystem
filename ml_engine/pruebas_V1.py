@@ -34,7 +34,7 @@ print("Data matrix (MATRIZ DE CALIFICACIONES) Usuarios-Ítems:")
 print(data_matrix)
 print()
 us = sklearn.metrics.pairwise_distances(data_matrix, metric='cosine')
-#user_similarity = pairwise_distances(data_matrix, metric='cosine')
+#user_similarity = pairwise_distances(matriz_calificaciones, metric='cosine')
 
 
 
