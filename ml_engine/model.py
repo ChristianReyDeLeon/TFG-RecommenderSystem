@@ -4,7 +4,7 @@ from sklearn.metrics.pairwise import pairwise_distances
 from pandas import ExcelWriter
 
 # Función para realizar predicciones basadas en las anteriores similitudes calculadas
-def predict(valoraciones, similitud, type='user'):
+def prediceValoraciones(valoraciones, similitud, tipo='user'):
     # calcular la media únicamente de las películas
     # mean_user_rating = valoraciones.sum(axis=1)/20
     media_valoraciones_usuario = []
@@ -22,11 +22,10 @@ def predict(valoraciones, similitud, type='user'):
     media_valoraciones_usuario = np.array(media_valoraciones_usuario)
     print("(media_valoraciones_usuario)")
     print(media_valoraciones_usuario)
-    if type == 'user':
-        # ELIMINAMOS EL SESGO de las calificaciones
-        ratings_diff = (valoraciones - media_valoraciones_usuario[:, np.newaxis])
+    if tipo == 'user':
+        #  Una buena elección para llenar los valores que faltan podría ser la valoración media de cada usuario
         pred = media_valoraciones_usuario[:, np.newaxis] + similitud.dot(valoraciones) / np.array([np.abs(similitud).sum(axis=1)]).T
-    elif type == 'item':
+    elif tipo == 'item':
         pred = media_valoraciones_usuario[:, np.newaxis] + valoraciones.dot(similitud) / np.array([np.abs(similitud).sum(axis=1)])
     return pred
 
@@ -61,8 +60,8 @@ print()
 user_similarity = pairwise_distances(matriz_calificaciones, metric='cosine')
 item_similarity = pairwise_distances(matriz_calificaciones.T, metric='cosine')
 
-user_prediction = predict(matriz_calificaciones, user_similarity, type='user')
-item_prediction = predict(matriz_calificaciones, item_similarity, type='item')
+user_prediction = predict(matriz_calificaciones, user_similarity, tipo='user')
+item_prediction = predict(matriz_calificaciones, item_similarity, tipo='item')
 
 '''
 
@@ -105,8 +104,8 @@ L2 = pd.DataFrame(data=item_similarity_u1base)
 L2.to_csv('item_similarity_u1base.csv', sep=';', header=False, float_format='%.2f', index=False)
 
 # Obtenemos las matrices con las predicciones de las valoraciones en base al filtrado colaborativo basado en los algoritmos (usuario-usuario) y (pelicula-pelicula)
-user_prediction_u1base = predict(matriz_calificaciones_u1base, user_similarity_u1base, type='user')
-item_prediction_u1base = predict(matriz_calificaciones_u1base, item_similarity_u1base, type='item')
+user_prediction_u1base = prediceValoraciones(matriz_calificaciones_u1base, user_similarity_u1base, tipo='user')
+item_prediction_u1base = prediceValoraciones(matriz_calificaciones_u1base, item_similarity_u1base, tipo='item')
 
 # Las volcamos sobre dos ficheros .csv
 L3 = pd.DataFrame(data=user_prediction_u1base)

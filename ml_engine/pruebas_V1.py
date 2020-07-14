@@ -12,7 +12,7 @@ versiones = {'python':2.7, 'zope':2.13, 'plone':None}
 
 # Pruebas de diccionarios
 '''
-print (diccionario, type(diccionario))
+print (diccionario, tipo(diccionario))
 print("")
 print(versiones['plone'])
 print(versiones['python'])
