@@ -324,62 +324,102 @@ L5IP.to_csv('item_prediction_u5base.csv', sep=';', header=False, float_format='%
 # Cálculo de ERRORES (MAE Y RMSE)
 
 # Se recorren los únicos elementos de matriz_calificaciones de TEST calculando la diferencia entre el valor real y el valor predicho (ERROR ABSOLUTO)
-arrayTempU12345 = []
+tuplaErroresTotal = []
+tuplaErroresU1 = []
 
 for i in range(len(matriz_calificaciones_u1test)):
     for j in range(len(matriz_calificaciones_u1test[i])):
         if matriz_calificaciones_u1test[i][j] != 0:
-            arrayTempU12345.append(np.abs(matriz_calificaciones_u1test[i][j] - user_prediction_u1base[i][j]))
+            tuplaErroresU1.append(np.abs(matriz_calificaciones_u1test[i][j] - user_prediction_u1base[i][j]))
+
+EAM_U1 = (np.array(tuplaErroresU1)).mean()
+tuplaErroresTotal.append(EAM_U1)
+print("EAM_U1")
+print(EAM_U1)
+
+EAU1 = pd.DataFrame(data=tuplaErroresU1)
+EAU1.to_csv('EAU1.csv', sep=';', header=False, float_format='%.2f', index=False)
 #######################################################################################################################
 
 ###################################### u2 (segundo Experimiento / Iteración) ###########################################
 # Cálculo de ERRORES (MAE Y RMSE)
+tuplaErroresU2 = []
 
 # Se recorren los únicos elementos de matriz_calificaciones de TEST calculando la diferencia entre el valor real y el valor predicho (ERROR ABSOLUTO)
 for i in range(len(matriz_calificaciones_u2test)):
     for j in range(len(matriz_calificaciones_u2test[i])):
         if matriz_calificaciones_u2test[i][j] != 0:
-            arrayTempU12345.append(np.abs(matriz_calificaciones_u2test[i][j] - user_prediction_u2base[i][j]))
+            tuplaErroresU2.append(np.abs(matriz_calificaciones_u2test[i][j] - user_prediction_u2base[i][j]))
+
+EAM_U2 = (np.array(tuplaErroresU2)).mean()
+tuplaErroresTotal.append(EAM_U2)
+print("EAM_U2")
+print(EAM_U2)
+
+EAU2 = pd.DataFrame(data=tuplaErroresU2)
+EAU2.to_csv('EAU2.csv', sep=';', header=False, float_format='%.2f', index=False)
 #######################################################################################################################
 
 ###################################### u3 (tercer Experimiento / Iteración) ###########################################
 # Cálculo de ERRORES (MAE Y RMSE)
+tuplaErroresU3 = []
 
 # Se recorren los únicos elementos de matriz_calificaciones de TEST calculando la diferencia entre el valor real y el valor predicho (ERROR ABSOLUTO)
 for i in range(len(matriz_calificaciones_u3test)):
     for j in range(len(matriz_calificaciones_u3test[i])):
         if matriz_calificaciones_u3test[i][j] != 0:
-            arrayTempU12345.append(np.abs(matriz_calificaciones_u3test[i][j] - user_prediction_u3base[i][j]))
+            tuplaErroresU3.append(np.abs(matriz_calificaciones_u3test[i][j] - user_prediction_u3base[i][j]))
+
+EAM_U3 = (np.array(tuplaErroresU3)).mean()
+tuplaErroresTotal.append(EAM_U3)
+print("EAM_U3")
+print(EAM_U3)
+
+EAU3 = pd.DataFrame(data=tuplaErroresU3)
+EAU3.to_csv('EAU3.csv', sep=';', header=False, float_format='%.2f', index=False)
 ######################################################################################################################
 
 ###################################### u4 (Cuarto Experimiento / Iteración) ###########################################
 # Cálculo de ERRORES (MAE Y RMSE)
+tuplaErroresU4 = []
 
 # Se recorren los únicos elementos de matriz_calificaciones de TEST calculando la diferencia entre el valor real y el valor predicho (ERROR ABSOLUTO)
 for i in range(len(matriz_calificaciones_u4test)):
     for j in range(len(matriz_calificaciones_u4test[i])):
         if matriz_calificaciones_u4test[i][j] != 0:
-            arrayTempU12345.append(np.abs(matriz_calificaciones_u4test[i][j] - user_prediction_u4base[i][j]))
+            tuplaErroresU4.append(np.abs(matriz_calificaciones_u4test[i][j] - user_prediction_u4base[i][j]))
+
+EAM_U4 = (np.array(tuplaErroresU4)).mean()
+tuplaErroresTotal.append(EAM_U4)
+print("EAM_U4")
+print(EAM_U4)
+
+EAU4 = pd.DataFrame(data=tuplaErroresU4)
+EAU4.to_csv('EAU4.csv', sep=';', header=False, float_format='%.2f', index=False)
 ######################################################################################################################
 
 ###################################### u5 (quinto Experimiento / Iteración) ###########################################
 # Cálculo de ERRORES (MAE Y RMSE)
+tuplaErroresU5 = []
 
 # Se recorren los únicos elementos de matriz_calificaciones de TEST calculando la diferencia entre el valor real y el valor predicho (ERROR ABSOLUTO)
-
 for i in range(len(matriz_calificaciones_u5test)):
     for j in range(len(matriz_calificaciones_u5test[i])):
         if matriz_calificaciones_u5test[i][j] != 0:
-            arrayTempU12345.append(np.abs(matriz_calificaciones_u5test[i][j] - user_prediction_u5base[i][j]))
+            tuplaErroresU5.append(np.abs(matriz_calificaciones_u5test[i][j] - user_prediction_u5base[i][j]))
 
+EAM_U5 = (np.array(tuplaErroresU5)).mean()
+tuplaErroresTotal.append(EAM_U5)
+print("EAM_U5")
+print(EAM_U5)
 
-mse = (np.square(arrayTempU12345)).mean()
-print("MSE")
-print(mse)
-# resultado
+EAU5 = pd.DataFrame(data=tuplaErroresU5)
+EAU5.to_csv('EAU5.csv', sep=';', header=False, float_format='%.2f', index=False)
 
-MAEUTOTAL = pd.DataFrame(data=arrayTempU12345)
-MAEUTOTAL.to_csv('MAEUTOTAL.csv', sep=';', header=False, float_format='%.2f', index=False)
+# Se calcula la media de los EAM de los 5 Experimentos / Iteraciones
+EAM_media = (np.array(tuplaErroresTotal)).mean()
+print("EAM_media")
+print(EAM_media)
 ######################################################################################################################
 
 '''
