@@ -2,8 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import pairwise_distances
 from sklearn.metrics import mean_absolute_error
-from sklearn.metrics import r2_score
-import random as rd
+
 
 '''
 Prepara los arrays con los ratings reales y los ratings predichos por el modelo
