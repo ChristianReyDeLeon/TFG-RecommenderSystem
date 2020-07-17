@@ -26,7 +26,7 @@ for key, value in diccionario.items() :
 '''
 
 data_matrix = np.array([
-    [1,2,0,5,3],
+    [1,2,0,5,3],.
     [3,2,0,5,3],
     [5,1,4,2,2]])
 
