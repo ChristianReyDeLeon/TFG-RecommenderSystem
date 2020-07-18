@@ -129,6 +129,12 @@ item_prediction_u1base = prediceII(matriz_calificaciones_u1base, item_similarity
 user_prediction_u1base = formatoInicial(user_prediction_u1base)
 item_prediction_u1base = formatoInicial(item_prediction_u1base)
 
+#Se vuelcan las matrices de CALIFICACIONES con las predicciones sobre dos ficheros en formato .csv
+DU1 = pd.DataFrame(data=user_prediction_u1base)
+DU1.to_csv('user_user_predictionU1', sep=';', header=False, float_format='%.2f', index=False)
+DI1 = pd.DataFrame(data=item_prediction_u1base)
+DI1.to_csv('item_item_predictionU1', sep=';', header=False, float_format='%.2f', index=False)
+
 # Se obtiene la matriz con las CALIFICACIONES del TEST para la primera iteración otorgadas por los usuarios a las películas
 matriz_calificaciones_u1test = getMatriz(calificaciones_u1test)
 
@@ -188,6 +194,12 @@ item_prediction_u2base = prediceII(matriz_calificaciones_u2base, item_similarity
 user_prediction_u2base = formatoInicial(user_prediction_u2base)
 item_prediction_u2base = formatoInicial(item_prediction_u2base)
 
+#Se vuelcan las matrices de CALIFICACIONES con las predicciones sobre dos ficheros en formato .csv
+DU2 = pd.DataFrame(data=user_prediction_u2base)
+DU2.to_csv('user_user_predictionU2', sep=';', header=False, float_format='%.2f', index=False)
+DI2 = pd.DataFrame(data=item_prediction_u2base)
+DI2.to_csv('item_item_predictionU2', sep=';', header=False, float_format='%.2f', index=False)
+
 # Se obtiene la matriz con las CALIFICACIONES del TEST para la primera iteración otorgadas por los usuarios a las películas
 matriz_calificaciones_u2test = getMatriz(calificaciones_u2test)
 
@@ -242,6 +254,12 @@ item_prediction_u3base = prediceII(matriz_calificaciones_u3base, item_similarity
 user_prediction_u3base = formatoInicial(user_prediction_u3base)
 item_prediction_u3base = formatoInicial(item_prediction_u3base)
 
+#Se vuelcan las matrices de CALIFICACIONES con las predicciones sobre dos ficheros en formato .csv
+DU3 = pd.DataFrame(data=user_prediction_u3base)
+DU3.to_csv('user_user_predictionU3', sep=';', header=False, float_format='%.2f', index=False)
+DI3 = pd.DataFrame(data=item_prediction_u3base)
+DI3.to_csv('item_item_predictionU3', sep=';', header=False, float_format='%.2f', index=False)
+
 # Se obtiene la matriz con las CALIFICACIONES del TEST para la primera iteración otorgadas por los usuarios a las películas
 matriz_calificaciones_u3test = getMatriz(calificaciones_u3test)
 
@@ -295,6 +313,12 @@ item_prediction_u4base = prediceII(matriz_calificaciones_u4base, item_similarity
 user_prediction_u4base = formatoInicial(user_prediction_u4base)
 item_prediction_u4base = formatoInicial(item_prediction_u4base)
 
+#Se vuelcan las matrices de CALIFICACIONES con las predicciones sobre dos ficheros en formato .csv
+DU4 = pd.DataFrame(data=user_prediction_u4base)
+DU4.to_csv('user_user_predictionU4', sep=';', header=False, float_format='%.2f', index=False)
+DI4 = pd.DataFrame(data=item_prediction_u4base)
+DI4.to_csv('item_item_predictionU4', sep=';', header=False, float_format='%.2f', index=False)
+
 # Se obtiene la matriz con las CALIFICACIONES del TEST para la primera iteración otorgadas por los usuarios a las películas
 matriz_calificaciones_u4test = getMatriz(calificaciones_u4test)
 
@@ -347,6 +371,12 @@ user_prediction_u5base = prediceUU(matriz_calificaciones_u5base, user_similarity
 item_prediction_u5base = prediceII(matriz_calificaciones_u5base, item_similarity_u5base)#(item-item)
 user_prediction_u5base = formatoInicial(user_prediction_u5base)
 item_prediction_u5base = formatoInicial(item_prediction_u5base)
+
+#Se vuelcan las matrices de CALIFICACIONES con las predicciones sobre dos ficheros en formato .csv
+DU5 = pd.DataFrame(data=user_prediction_u5base)
+DU5.to_csv('user_user_predictionU5', sep=';', header=False, float_format='%.2f', index=False)
+DI5 = pd.DataFrame(data=item_prediction_u5base)
+DI5.to_csv('item_item_predictionU5', sep=';', header=False, float_format='%.2f', index=False)
 
 # Se obtiene la matriz con las CALIFICACIONES del TEST para la primera iteración otorgadas por los usuarios a las películas
 matriz_calificaciones_u5test = getMatriz(calificaciones_u5test)
